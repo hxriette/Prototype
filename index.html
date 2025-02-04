@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Distribution Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="dashboard" class="container">
+        <header class="header">
+            <h1>Call Distribution Dashboard</h1>
+            <div class="controls">
+                <button id="toggle-dark-mode"><i data-lucide="moon"></i></button>
+                <button id="toggle-filters"><i data-lucide="filter"></i></button>
+                <button id="export-data"><i data-lucide="download"></i></button>
+            </div>
+        </header>
+
+        <!-- Filters Section -->
+        <div id="filters" class="filters hidden">
+            <label>Date Range:
+                <select id="date-range">
+                    <option value="today">Today</option>
+                    <option value="week">Last 7 Days</option>
+                    <option value="month">Last 30 Days</option>
+                </select>
+            </label>
+            <button id="close-filters"><i data-lucide="x"></i></button>
+        </div>
+
+        <!-- Queue Selection -->
+        <div id="queues" class="queue-buttons"></div>
+
+        <!-- Notifications -->
+        <div id="notifications"></div>
+
+        <!-- Metrics Cards -->
+        <div class="metrics">
+            <div class="card">
+                <i data-lucide="phone"></i>
+                <h2>Active Calls</h2>
+                <p id="active-calls">24</p>
+            </div>
+            <div class="card">
+                <i data-lucide="clock"></i>
+                <h2>Avg Wait Time</h2>
+                <p id="avg-wait-time">1m 45s</p>
+            </div>
+            <div class="card">
+                <i data-lucide="users"></i>
+                <h2>Available Agents</h2>
+                <p id="available-agents">12 / 15</p>
+            </div>
+        </div>
+
+        <!-- Call Volume Chart -->
+        <canvas id="callChart"></canvas>
+
+        <!-- Agent Status -->
+        <div id="agent-status" class="agent-status"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
